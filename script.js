@@ -39,7 +39,7 @@ async function displayPlayerCount() {
     setInterval(async () => {
         const playerCount = await readPlayerCount();
         playerCountElement.textContent = `${playerCount} / 100 players`;
-    }, 10000); // Co 10 sekund
+    }, 10); // Co 10 sekund
 }
 
 // Start skryptu
