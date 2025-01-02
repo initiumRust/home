@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Zapewnia prawidłowe liczenie rozmiarów */
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Usunięcie przewijania poziomego */
+}
+
+body {
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+}
+
+
+/* Stylizacja nawigacji */
+.navbar {
+    display: flex;
+    align-items: center; /* Wyśrodkowanie pionowe */
+    justify-content: space-between; /* Rozkład elementów */
+    background-color: #1a1a1a; /* Czarny pasek */
+    padding: 22px 50px;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    position: absolute; /* Pozycjonowanie absolutne */
+    left: 50%; /* Wyśrodkowanie poziome */
+    transform: translateX(-50%); /* Przesunięcie o połowę szerokości */
+}
+
+.logo img {
+    height: 60px; /* Rozmiar logo */
+}
+
+/* Sekcja z serwerami */
+.servers {
+    height: 100vh; /* Ustawienie wysokości ekranu */
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+
+
+
+    /* Logo and Discord Container */
+    .header-container {
+        position: fixed;
+        top: 20px;
+        left: 20px; /* Umieszczenie na lewej stronie */
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 12px;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+  
+  
+      .header-container img {
+        height: 30px;
+        cursor: pointer;
+      }
+  
+      .discord-text {
+        font-size: 16px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+      }
+  
+      .discord-text:hover {
+        color: #7289da;
+      }
+  
+      .content {
+        text-align: center;
+        padding-top: 40vh;
+      }
+
+      .header-container, .hero-content p {
+        animation: fadeIn 2s ease-in-out;
+    }
+    
+    /* Animacja dla tekstu */
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .server-card {
+        animation: fadeIn 2s ease-in-out;
+    }
+
+/* Tło sekcji */
+.hero-section {
+    position: relative;
+    height: 78vh;
+    background: rgba(0, 0, 0, 0.7) url('background.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Treść na środku */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Tytuł */
+.hero-title {
+    font-size: 3em;
+    color: white;
+    font-weight: bold;
+}
+
+/* Fioletowy kolor dla INITIUM RUST */
+.hero-title .highlight {
+    color: #8a2be2; /* Fioletowy */
+}
+
+/* Podtytuł */
+.hero-subtitle {
+    font-size: 1.5em;
+    color: #ddd;
+}
+
+/* Efekt powolnego pojawiania się napisu */
+.hero-content h1, .hero-content p {
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Animacja dla tekstu */
+
+
+
+.server-card {
+    background: #2c2c2c;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+.server-card:hover {
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    background-color: #2F2F2F;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Rozdzielenie tekstu i strzałki */
+    cursor: pointer; /* Zmiana kursora na wskaźnik */
+}
+
+/* Kontener FAQ */
+.faq-container {
+    max-width: 1200px; /* Maksymalna szerokość */
+    margin: 0 auto; /* Wyśrodkowanie */
+    padding: 20px; /* Odstępy wewnętrzne */
+}
+
+/* Nagłówek FAQ */
+.faq-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px; /* Odstęp od reszty sekcji */
+    color: white;
+}
+
+/* Styl pytania */
+.faq-question {
+    width: 100%;
+    text-align: center;
+    padding: 26px 30px;
+    background-color: #424242;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1px;
+    border-radius: 8px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/* Styl odpowiedzi */
+.faq-answer {
+    padding: 12px 20px;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 18px;
+    color: #D1D5DB;
+}
+
+/* Aktywna odpowiedź */
+.faq-answer.active {
+    max-height: 300px; 
+    opacity: 1;
+}
+
+/* Strzałka */
+.faq-arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+/* Obrót strzałki po aktywacji */
+.faq-question.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+
+
+
+/* STAFF Section Styles */
+/* Ogólne ustawienia */
+/* Kontener główny */
+.staff-container {
+    text-align: center;
+    background-color: #1a1a1a;
+    padding: 50px 0; /* Większy padding, aby nagłówek miał odpowiednią odległość */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nagłówek */
+.staff-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 30px; /* Dystans pod nagłówkiem */
+}
+
+/* Kontener dla członków */
+.staff-members {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Wyśrodkowanie pionowe */
+    gap: 45px; /* Odstępy między obrazkami */
+}
+
+/* Styl pojedynczego członka */
+.staff-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie elementów w kolumnie */
+}
+
+/* Zdjęcie */
+.staff-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Zaokrąglony kształt */
+    border: 4px solid white; /* Obramowanie */
+    margin-bottom: 15px; /* Dystans od tekstu */
+    align-items: center;
+}
+
+/* Nazwa */
+.staff-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+}
+
+/* Rola */
+.staff-role {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+/* Podświetlenie roli */
+.role-highlight {
+    font-weight: bold;
+    color: #8a2be2; /* Fioletowy kolor */
+}
+
+
+/* Footer Section */
+.footer-section {
+    background: #2a2a2a;
+    padding: 40px;
+    color: white;
+    position: relative;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info {
+    display: flex;
+    align-items: center;
+}
+
+.initium-logo {
+    width: 40px; /* Zmniejsz szerokość logo */
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Odstęp między logo a tekstem */
+}
+
+.footer-copyright {
+    text-align: left;
+    color: #aaa;
+}
+
+
+.store-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#store-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 160px;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  .store-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .store-logo img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .store-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .store-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+  }
+
+  .perks {
+    margin: 10px 0;
+  }
+
+  .perk {
+    margin: 5px 0;
+  }
+
+  .checkmark {
+    color: #984caf;
+    font-weight: bold;
+  }
+
+   /* Scrollbar styles */
+   ::-webkit-scrollbar {
+    width: 8px; /* Szerokość paska przewijania */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #585858; /* Kolor kciuka paska przewijania */
+    border-radius: 4px; /* Zaokrąglenie */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #666; /* Kolor kciuka po najechaniu */
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #2c2c2c; /* Tło toru przewijania */
+  }
+
+  /* Stylizacja dla przeglądarek innych niż WebKit */
+  body {
+    scrollbar-width: thin; /* Smukły pasek przewijania */
+    scrollbar-color: #444 #2c2c2c; /* Kciuk i tor */
+  }
